@@ -38,3 +38,7 @@ display(tabela_faturamento)
 tabela_city = tabela_total.groupby("Loja").sum()
 tabela_city = tabela_city[["Faturamento"]].sort_values(by='Faturamento', ascending=False)
 display(tabela_city)
+
+import plotly.express as px
+grafico = px.bar(tabela_city, x=tabela_city.index, y='Faturamento')
+grafico.show()
